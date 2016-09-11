@@ -5,5 +5,10 @@
     <string name="group">Группа</string>
     <string name="email">E-mail</string>
     <string name="phone">Телефон</string>
+    <string name="value_name">Давид</string>
+    <string name="value_surname">Леквеишвили</string>
+    <string name="value_group">13 ИВТ 1</string>
+    <string name="value_email">Zanderhamster@yandex.ru</string>
+    <string name="value_phone">8-920-840-92-40</string>
 
 </resources>
