@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lekveishvili</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="group">Группа</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Телефон</string>
+
 </resources>
