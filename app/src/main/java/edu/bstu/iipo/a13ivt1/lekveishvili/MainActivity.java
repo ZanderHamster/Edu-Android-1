@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
+        Intent intent=null;
+        String textView;
         switch (view.getId()){
             case R.id.button:
-                String textView= ((TextView) findViewById(R.id.value_Phone)).getText().toString();
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+textView));
+                textView= ((TextView) findViewById(R.id.value_Phone)).getText().toString();
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+textView));
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
@@ -33,8 +36,28 @@ public class MainActivity extends AppCompatActivity {
                     // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
-                startActivity(intent);
+                break;
+            case R.id.value_Phone:
+
+                textView= ((TextView) findViewById(R.id.value_Phone)).getText().toString();
+                intent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+textView));
+                break;
+            case  R.id.value_Email:
+                String emailTo = ((TextView) findViewById(R.id.value_Email)).getText().toString();
+                String[] emailToArray = {emailTo};
+                String subject = "Тема сообщения";
+                String message = "Текст сообщения";
+
+
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_EMAIL, emailToArray);
+                intent.putExtra(Intent.EXTRA_SUBJECT,subject);
+                intent.putExtra(Intent.EXTRA_TEXT,message);
+                intent.setType("text/plain");
+                startActivity(Intent.createChooser(intent,"Выберите клиент для отправки сообщения"));
+
                 break;
         }
+        startActivity(intent);
     }
 }

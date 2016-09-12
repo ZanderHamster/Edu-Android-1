@@ -92,7 +92,8 @@
                 android:text="@string/value_email"
                 android:id="@+id/value_Email"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick"/>
         </TableRow>
 
         <TableRow
@@ -112,7 +113,8 @@
                 android:text="@string/value_phone"
                 android:id="@+id/value_Phone"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick"/>
         </TableRow>
 
     </TableLayout>
@@ -120,7 +122,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Набрать студента"
+        android:text="@string/txtBtn"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
@@ -132,7 +134,7 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etNumber"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/button" />
