@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MyLogs";
 
     @Override
@@ -77,17 +77,11 @@ public class MainActivity extends Activity {
                 break;
             case  R.id.value_Email:
                 Log.i(TAG,"Send email");
-                intent = new Intent(Intent.ACTION_SEND)
+                intent = new Intent(Intent.ACTION_SENDTO)
                         .putExtra(Intent.EXTRA_EMAIL, new String[]{((TextView) findViewById(R.id.value_Email)).getText().toString()})
                         .putExtra(Intent.EXTRA_SUBJECT,"Тема сообщения")
                         .putExtra(Intent.EXTRA_TEXT,"Текст сообщения")
-                        .setType("text/plain");
-                // intent.setData(Uri.parse("mail:"));
-
-                //intent.setType("*/*");
-               // if (intent.resolveActivity(getPackageManager()) != null) {
-
-                //}
+                        .setData(Uri.parse("mailto:"));
                 break;
         }
         startActivity(intent);
