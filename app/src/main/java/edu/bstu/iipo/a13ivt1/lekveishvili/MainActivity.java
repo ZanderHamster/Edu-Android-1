@@ -1,6 +1,7 @@
 package edu.bstu.iipo.a13ivt1.lekveishvili;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -9,10 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private final static String TAG = "MyLogs";
 
     @Override
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         Intent intent=null;
         String textView;
+
         switch (view.getId()){
             case R.id.button:
                 Log.i(TAG,"Сall number");
@@ -72,18 +75,19 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 break;
-            case R.id.value_Phone:
-                Log.i(TAG,"Dialing a number");
-                textView= ((TextView) findViewById(R.id.value_Phone)).getText().toString();
-                intent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+textView));
-                break;
             case  R.id.value_Email:
                 Log.i(TAG,"Send email");
-                intent = new Intent(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{((TextView) findViewById(R.id.value_Email)).getText().toString()});
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Тема сообщения");
-                intent.putExtra(Intent.EXTRA_TEXT,"Текст сообщения");
-                intent.setType("text/plain");
+                intent = new Intent(Intent.ACTION_SEND)
+                        .putExtra(Intent.EXTRA_EMAIL, new String[]{((TextView) findViewById(R.id.value_Email)).getText().toString()})
+                        .putExtra(Intent.EXTRA_SUBJECT,"Тема сообщения")
+                        .putExtra(Intent.EXTRA_TEXT,"Текст сообщения")
+                        .setType("text/plain");
+                // intent.setData(Uri.parse("mail:"));
+
+                //intent.setType("*/*");
+               // if (intent.resolveActivity(getPackageManager()) != null) {
+
+                //}
                 break;
         }
         startActivity(intent);
