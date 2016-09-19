@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-
                 break;
             case  R.id.value_Email:
                 Log.i(TAG,"Send email");
