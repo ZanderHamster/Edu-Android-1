@@ -4,7 +4,7 @@ android {
     signingConfigs {
     }
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "edu.bstu.iipo.a13ivt1.lekveishvili"
         minSdkVersion 19
